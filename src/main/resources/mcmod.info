@@ -1,6 +1,6 @@
 [
 {
-  "modid": "configurableLightning",
+  "modid": "cf",
   "name": "Configurable Lightning",
   "description": "Allows the spawning frequency to be configured.",
   "version": "${version}",
@@ -8,7 +8,7 @@
   "url": "",
   "updateUrl": "",
   "authorList": ["MisterPeModder"],
-  "credits": "",
+  "credits": "CattyCat, for suggesting the mod idea",
   "logoFile": "",
   "screenshots": [],
   "dependencies": [
