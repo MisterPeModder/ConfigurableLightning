@@ -1,0 +1,18 @@
+[
+{
+  "modid": "configurableLightning",
+  "name": "Configurable Lightning",
+  "description": "Allows the spawning frequency to be configured.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["MisterPeModder"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": [
+     "mod_MinecraftForge"
+  ]
+}
+]
