@@ -20,8 +20,8 @@ public class ClassTransformer implements IClassTransformer {
 	public static final Logger LOGGER = LogManager.getLogger(LoadingPlugin.NAME);
 
 	@Override
-	public byte[] transform(String name, String transformedName, byte[] basicClass) {
-		if (name.equals("net.minecraft.world.WorldServer")) {
+	public byte[] transform(String obfName, String transformedName, byte[] basicClass) {
+		if (transformedName.equals("net.minecraft.world.WorldServer")) {
 			return transformWorldServer(basicClass);
 		} else {
 			return basicClass;
@@ -36,7 +36,6 @@ public class ClassTransformer implements IClassTransformer {
 
 		String methodName = LoadingPlugin.runtimeDeobfuscation ? "updateBlocks" : "func_147456_g";
 		for (MethodNode mn : classNode.methods) {
-
 			if (mn.access == ACC_PROTECTED && mn.name.equals(methodName) && mn.desc.equals("()V") && mn.signature == null) {
 				for (int i = 0; i < mn.instructions.size(); i++) {
 					AbstractInsnNode node = mn.instructions.get(i);

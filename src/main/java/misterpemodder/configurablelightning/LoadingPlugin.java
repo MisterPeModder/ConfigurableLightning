@@ -6,7 +6,7 @@ import net.minecraftforge.fml.relauncher.IFMLLoadingPlugin;
 
 @IFMLLoadingPlugin.Name(LoadingPlugin.NAME)
 @IFMLLoadingPlugin.MCVersion("1.11.2")
-@IFMLLoadingPlugin.SortingIndex(485)
+@IFMLLoadingPlugin.SortingIndex(1042)
 public class LoadingPlugin implements IFMLLoadingPlugin {
 	
 	public static boolean runtimeDeobfuscation = false;

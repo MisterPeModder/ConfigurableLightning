@@ -17,11 +17,12 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 public class CLHandler {
 
 	public static final int DEFAULT_VALUE = 100000;
+	public static final String GAMERULE_NAME = "lightningProbability";
 	
 	@SubscribeEvent
 	public static void worldLoadingEvent(WorldEvent.Load event) {
-		if(!event.getWorld().getGameRules().hasRule("lightningProbability")) {
-			event.getWorld().getGameRules().addGameRule("lightningProbability", String.valueOf(DEFAULT_VALUE), ValueType.ANY_VALUE);
+		if(!event.getWorld().getGameRules().hasRule(GAMERULE_NAME)) {
+			event.getWorld().getGameRules().addGameRule(GAMERULE_NAME, String.valueOf(DEFAULT_VALUE), ValueType.ANY_VALUE);
 		}
 	}
 	
@@ -29,7 +30,7 @@ public class CLHandler {
 	public static void commandEvent(CommandEvent event) {
 		if(event.getCommand() instanceof CommandGameRule && event.getCommand().getName().equals("gamerule")) {
 			String[] args = event.getParameters();
-			if(args.length >= 2) {
+			if(args.length >= 2 && args[1].equals(GAMERULE_NAME)) {
 				try {
 					int i = Integer.parseInt(args[1]);
 					if(i < 0) {
@@ -55,8 +56,8 @@ public class CLHandler {
 	
 	public static boolean shouldDoLightning(WorldServer world, Random rand) {
 		GameRules rules = world.getGameRules();
-		if(rules.hasRule("lightningProbability")) {
-			int i = rules.getInt("lightningProbability");
+		if(rules.hasRule(GAMERULE_NAME)) {
+			int i = rules.getInt(GAMERULE_NAME);
 			if(i <= 0) return false;
 			return rand.nextInt(i) == 0;
 		} else {
