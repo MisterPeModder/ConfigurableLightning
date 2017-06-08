@@ -2,8 +2,7 @@ Configurable Lightning
 =========================
 
 This mod allows lightning spawning chance to be changed using /gamerule lightningProbability (integer)
-This number means there is 1 chance out of (number) that an EntityLightningBolt spawns when it's raining, default value is 100000.
-
+This number means there is 1 chance out of (number) that an EntityLightningBolt spawns when it's raining, setting it to 0 or lower will disable lightning bolts and setting it to any string such as "covefe" will restore it the default vaulue of 100000.
 
 #### Credits:
 -CattyCat (http://www.minecraftforum.net/members/CattyCat), for suggesting the mod idea.
