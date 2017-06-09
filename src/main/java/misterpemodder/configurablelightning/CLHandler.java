@@ -30,7 +30,7 @@ public class CLHandler {
 	public static void commandEvent(CommandEvent event) {
 		if(event.getCommand() instanceof CommandGameRule && event.getCommand().getName().equals("gamerule")) {
 			String[] args = event.getParameters();
-			if(args.length >= 2 && args[1].equals(GAMERULE_NAME)) {
+			if(args.length >= 2 && args[0].equals(GAMERULE_NAME)) {
 				try {
 					int i = Integer.parseInt(args[1]);
 					if(i < 0) {
