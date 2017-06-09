@@ -3,7 +3,7 @@ package misterpemodder.configurablelightning;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.Instance;
 
-@Mod(modid = ConfigurableLightning.MOD_ID, name = ConfigurableLightning.MOD_NAME, version = ConfigurableLightning.MOD_VERSION, acceptedMinecraftVersions = ConfigurableLightning.ACCEPTED_MC_VERSIONS)
+@Mod(modid = ConfigurableLightning.MOD_ID, name = ConfigurableLightning.MOD_NAME, version = ConfigurableLightning.MOD_VERSION, acceptedMinecraftVersions = ConfigurableLightning.ACCEPTED_MC_VERSIONS, acceptableRemoteVersions = "*")
 public class ConfigurableLightning {
 	
 	public static final String MOD_ID = "cl";
