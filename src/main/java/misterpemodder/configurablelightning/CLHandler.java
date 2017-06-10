@@ -13,7 +13,7 @@ import net.minecraftforge.event.world.WorldEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-@Mod.EventBusSubscriber(modid = ConfigurableLightning.MOD_ID)
+@Mod.EventBusSubscriber
 public class CLHandler {
 
 	public static final int DEFAULT_VALUE = 100000;

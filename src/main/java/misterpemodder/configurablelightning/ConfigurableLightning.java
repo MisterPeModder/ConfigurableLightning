@@ -8,8 +8,8 @@ public class ConfigurableLightning {
 	
 	public static final String MOD_ID = "cl";
 	public static final String MOD_NAME = "Configurable Lightning";
-	public static final String MOD_VERSION = "1.0.0";
-	public static final String ACCEPTED_MC_VERSIONS = "[1.11.2,)";
+	public static final String MOD_VERSION = "1.0.1";
+	public static final String ACCEPTED_MC_VERSIONS = "[1.10.2]";
 	
 	@Instance(ConfigurableLightning.MOD_ID)
 	public static ConfigurableLightning instance;
