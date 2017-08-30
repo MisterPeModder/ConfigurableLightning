@@ -10,7 +10,7 @@ buildscript {
 apply plugin: 'net.minecraftforge.gradle.forge'
 
 
-version = "1.10.2-1.0.1"
+version = "1.10.2-1.1.0"
 group = "misterpemodder.configurablelightning"
 archivesBaseName = "configurableLightning"
 
@@ -22,7 +22,7 @@ compileJava {
 minecraft {
     version = "${mc_version_full}"
     
-    coreMod = "misterpemodder.configurablelightning.LoadingPlugin"
+    coreMod = "misterpemodder.configurablelightning.CLLoadingPlugin"
     
     runDir = "run"
     mappings = "snapshot_20161220"
@@ -48,6 +48,6 @@ processResources {
 
 jar {
     manifest {
-        attributes("FMLCorePluginContainsFMLMod": "true", "FMLCorePlugin": "misterpemodder.configurablelightning.LoadingPlugin")
+        attributes("FMLCorePluginContainsFMLMod": "true", "FMLCorePlugin": "misterpemodder.configurablelightning.CLLoadingPlugin")
     }
 }
