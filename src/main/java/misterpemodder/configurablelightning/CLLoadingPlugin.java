@@ -1,23 +1,38 @@
 package misterpemodder.configurablelightning;
 
-import java.util.Collections;
-import java.util.Set;
+import java.util.Map;
 
-import misterpemodder.hc.asm.ClassPatcher;
-import misterpemodder.hc.asm.HCLoadingPlugin;
 import net.minecraftforge.fml.relauncher.IFMLLoadingPlugin;
 
 
 @IFMLLoadingPlugin.Name(CLLoadingPlugin.NAME)
 @IFMLLoadingPlugin.MCVersion("1.10.2")
 @IFMLLoadingPlugin.SortingIndex(1042)
-public class CLLoadingPlugin extends HCLoadingPlugin {
+public class CLLoadingPlugin implements IFMLLoadingPlugin {
 
 	public static final String NAME = "CL Loading Plugin";
 
 	@Override
-	protected Set<ClassPatcher> getClassPatchers() {
-		return Collections.singleton(new CLClassPatcher());
+	public String[] getASMTransformerClass() {
+		return new String[]{CLClassTransformer.class.getName()};
+	}
+
+	@Override
+	public String getModContainerClass() {
+		return null;
+	}
+
+	@Override
+	public String getSetupClass() {
+		return null;
+	}
+
+	@Override
+    public void injectData(Map<String, Object> data) {}
+
+	@Override
+	public String getAccessTransformerClass() {
+		return null;
 	}
 
 }

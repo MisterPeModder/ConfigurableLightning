@@ -2,7 +2,7 @@
 {
   "modid": "cl",
   "name": "Configurable Lightning",
-  "description": "Allows the spawning frequency to be configured.",
+  "description": "Allows the spawning frequency of lightning to be configured.",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "https://minecraft.curseforge.com/projects/configurablelightning",

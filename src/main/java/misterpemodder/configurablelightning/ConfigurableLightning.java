@@ -9,7 +9,7 @@ import net.minecraftforge.fml.common.Mod.Instance;
 		version = ConfigurableLightning.MOD_VERSION,
 		acceptedMinecraftVersions = ConfigurableLightning.ACCEPTED_MC_VERSIONS,
 		acceptableRemoteVersions = "*",
-		dependencies = "required-before:hc@[1.0.0,)"
+		dependencies = "required-after:hc@[1.0.0,)"
 	)
 public class ConfigurableLightning {
 	
