@@ -1,4 +1,4 @@
-package misterpemodder.configurablelightning;
+package misterpemodder.configurablelightning.asm;
 
 import java.util.Collections;
 import java.util.Set;

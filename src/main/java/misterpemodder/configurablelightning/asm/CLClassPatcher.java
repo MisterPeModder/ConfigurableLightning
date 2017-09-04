@@ -1,4 +1,4 @@
-package misterpemodder.configurablelightning;
+package misterpemodder.configurablelightning.asm;
 
 import static org.objectweb.asm.Opcodes.ACC_PROTECTED;
 import static org.objectweb.asm.Opcodes.ALOAD;
@@ -52,7 +52,7 @@ public class CLClassPatcher extends ClassPatcher {
 						mn.instructions.remove(mn.instructions.get(i+1));
 
 						mn.instructions.insertBefore(targetNode, new VarInsnNode(ALOAD, 0));
-						mn.instructions.insert(targetNode, new MethodInsnNode(INVOKESTATIC, "misterpemodder/configurablelightning/CLHandler", "shouldDoLightning", "(Lnet/minecraft/world/WorldServer;Ljava/util/Random;)Z", false));
+						mn.instructions.insert(targetNode, new MethodInsnNode(INVOKESTATIC, "misterpemodder/configurablelightning/Hooks", "shouldDoLightning", "(Lnet/minecraft/world/WorldServer;Ljava/util/Random;)Z", false));
 					}
 
 				});
