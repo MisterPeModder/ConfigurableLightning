@@ -1,5 +1,7 @@
 package misterpemodder.configurablelightning;
 
+import org.apache.commons.lang3.tuple.Pair;
+
 import misterpemodder.configurablelightning.gamerules.GameruleBase;
 import misterpemodder.configurablelightning.gamerules.TheRules;
 import net.minecraft.command.CommandBase;
@@ -32,11 +34,16 @@ public class EventHandler {
 			for(TheRules r : TheRules.values()) {
 				GameruleBase rule = r.rule;
 				if(args.length >= 2 && args[0].equals(rule.getId())) {
-					args[1] = rule.checkValue(args[1]);
+					Pair<String, Object> p = rule.checkValue(args[1]);
+					rule.currentValue = p.getRight();
+					rule.currentValueString = p.getLeft();
+					args[1] = p.getLeft();
 
 					String str = "";
-					if(args[1].equals("0")) {
+					if(args[1].equals("0") || args[1].equals("0.0") || args[1].equals("false")) {
 						str = " is now disabled";
+					} else if(args[1].equals("true")) {
+						str = " is now enabled";
 					} else if(args[1].equals(rule.getDefaultValueString())) {
 						str = " set to default value ("+rule.getDefaultValueString()+")";
 					} else {

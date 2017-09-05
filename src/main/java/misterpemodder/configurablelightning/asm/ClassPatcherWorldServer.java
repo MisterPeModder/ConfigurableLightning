@@ -5,6 +5,8 @@ import static org.objectweb.asm.Opcodes.ALOAD;
 import static org.objectweb.asm.Opcodes.GETFIELD;
 import static org.objectweb.asm.Opcodes.IFEQ;
 import static org.objectweb.asm.Opcodes.INVOKESTATIC;
+import static org.objectweb.asm.Opcodes.INVOKEVIRTUAL;
+import static org.objectweb.asm.Opcodes.IFGE;
 
 import java.util.Collections;
 import java.util.List;
@@ -17,9 +19,11 @@ import org.objectweb.asm.tree.MethodInsnNode;
 import org.objectweb.asm.tree.MethodNode;
 import org.objectweb.asm.tree.VarInsnNode;
 
+import com.google.common.collect.Lists;
+
 import misterpemodder.hc.asm.ClassPatcher;
 
-public class CLClassPatcher extends ClassPatcher {
+public class ClassPatcherWorldServer extends ClassPatcher {
 
 	@Override
 	public boolean matches(String transformedClassName) {
@@ -37,7 +41,7 @@ public class CLClassPatcher extends ClassPatcher {
 			
 			@Override
 			public List<IPatch> getPatches() {
-				return Collections.singletonList(new IPatch() {
+				return Lists.newArrayList(new IPatch() {
 					
 					@Override
 					public BiPredicate<Boolean, AbstractInsnNode> getNodePredicate() {
@@ -55,6 +59,30 @@ public class CLClassPatcher extends ClassPatcher {
 						mn.instructions.insert(targetNode, new MethodInsnNode(INVOKESTATIC, "misterpemodder/configurablelightning/Hooks", "shouldDoLightning", "(Lnet/minecraft/world/WorldServer;Ljava/util/Random;)Z", false));
 					}
 
+				},
+				new IPatch() {
+
+					@Override
+					public BiPredicate<Boolean, AbstractInsnNode> getNodePredicate() {
+						return (obf, node) -> node.getOpcode() == INVOKEVIRTUAL && node instanceof MethodInsnNode && ((MethodInsnNode)node).owner.equals("net/minecraft/world/DifficultyInstance") && ((MethodInsnNode)node).desc.equals("()F");
+					}
+
+					@Override
+					public void makePatch(MethodNode mn, AbstractInsnNode targetNode, int i) {
+						JumpInsnNode node = null;
+						for(AbstractInsnNode n = targetNode; n.getNext() != null; n = n.getNext()) {
+							if(n.getOpcode() == IFGE && n instanceof JumpInsnNode) {
+								node = (JumpInsnNode) n;
+								break;
+							}
+						}
+						if(node != null) {
+							mn.instructions.insert(node, new JumpInsnNode(IFEQ, node.label));
+							mn.instructions.insert(node, new MethodInsnNode(INVOKESTATIC, "misterpemodder/configurablelightning/Hooks", "shouldSpawnSkeletonHorse", "(Lnet/minecraft/world/WorldServer;)Z", false));
+							mn.instructions.insert(node, new VarInsnNode(ALOAD, 0));
+						}
+					}
+					
 				});
 			}
 
