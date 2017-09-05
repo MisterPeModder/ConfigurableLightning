@@ -6,7 +6,7 @@ import net.minecraftforge.fml.relauncher.IFMLLoadingPlugin;
 
 
 @IFMLLoadingPlugin.Name(CLLoadingPlugin.NAME)
-@IFMLLoadingPlugin.MCVersion("1.10.2")
+@IFMLLoadingPlugin.MCVersion("1.11.2")
 @IFMLLoadingPlugin.SortingIndex(1042)
 public class CLLoadingPlugin implements IFMLLoadingPlugin {
 
