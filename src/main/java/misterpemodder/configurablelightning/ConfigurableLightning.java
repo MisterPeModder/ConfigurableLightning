@@ -15,7 +15,7 @@ public class ConfigurableLightning {
 	
 	public static final String MOD_ID = "cl";
 	public static final String MOD_NAME = "Configurable Lightning";
-	public static final String MOD_VERSION = "1.1.0";
+	public static final String MOD_VERSION = "1.1.1";
 	public static final String ACCEPTED_MC_VERSIONS = "[1.11.2]";
 	
 	@Instance(ConfigurableLightning.MOD_ID)
