@@ -11,8 +11,7 @@
   "credits": "CattyCat, for suggesting the mod idea",
   "logoFile": "logo.png",
   "screenshots": [],
-  "dependencies": [
-     "mod_MinecraftForge"
-  ]
+  "dependencies": [ "hc" ],
+  "requiredMods": [ "hc" ]
 }
 ]
